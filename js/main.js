@@ -115,3 +115,10 @@
 	});
 
 })(jQuery);
+
+
+
+function submitForm() {
+  document.getElementsByClassName("contactForm").submit();
+	alert('Submit Sucessfully');
+}
