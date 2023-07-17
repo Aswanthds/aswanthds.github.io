@@ -1091,38 +1091,8 @@ footer .credits a {
 //--//-->   CONtaCT FORM
 ======================================*/
 
-#sendmessage {
-  color: #3C2A21;
-  border: 1px solid #3C2A21;
-  display: none;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-#errormessage {
+.error {
   color: red;
-  display: none;
-  border: 1px solid red;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-#sendmessage.show,
-#errormessage.show,
-.show {
-  display: block;
-}
-
-.validation {
-  color: red;
-  display: none;
-  margin: 0 0 20px;
-  font-weight: 400;
-  font-size: 13px;
 }
 
 /*======================================

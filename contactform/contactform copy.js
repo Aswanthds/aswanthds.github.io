@@ -4,33 +4,38 @@ const senderEmail = document.getElementById("email");
 const senderSubject = document.getElementById("subject");
 const senderMessage = document.getElementById("messages");
 
-form.addEventListener("submit", e => {
+
+form.addEventListener('submit', e => {
   e.preventDefault();
+
   validateInputs();
 });
 
 const setError = (element, message) => {
+
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector('.error');
 
   errorDisplay.innerText = message;
   inputControl.classList.add('error');
   inputControl.classList.remove('success');
-};
 
-const setSuccess = (element) => {
+}
+
+
+const isValidEmail = email => {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase);
+}
+
+const setSucess = element => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector('.error');
 
   errorDisplay.innerText = '';
   inputControl.classList.remove('error');
   inputControl.classList.add('success');
-};
-
-const isValidEmail = (email) => {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-};
+}
 
 const validateInputs = () => {
   const nameValue = senderName.value.trim();
@@ -39,28 +44,31 @@ const validateInputs = () => {
   const messageValue = senderMessage.value.trim();
 
   if (nameValue === '') {
-    setError(senderName, "Name is required");
+    setError(senderName, "Name is Required");
   } else {
-    setSuccess(senderName);
+    setSucess(nameValue)
   }
 
+
   if (emailValue === '') {
-    setError(senderEmail, "Email is required");
-  } else if (!isValidEmail(emailValue)) {
-    setError(senderEmail, "Provide a valid email address");
-  } else {
-    setSuccess(senderEmail);
+    setError(senderEmail, "Email is Required");
+  } else if(!isValidEmail(emailValue)) {
+    setError(senderEmail, "Provide a valid Email adress");
+  } else{
+    setSucess(senderEmail);
   }
 
   if (subjectValue === '') {
-    setError(senderSubject, "Subject is required");
+     setError(senderSubject, "Subject Required ");
   } else {
-    setSuccess(senderSubject);
+    setSucess(senderSubject);
   }
 
   if (messageValue === '') {
-    setError(senderMessage, 'Please enter a message');
-  } else {
-    setSuccess(senderMessage);
+    setError(senderMessage, 'Send some message');
+    
+  }else{
+    setSucess(senderMessage);
   }
-};
+}
+
