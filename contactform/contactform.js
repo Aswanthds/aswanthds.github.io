@@ -1,4 +1,4 @@
-const form = document.getElementById("form");
+const form = document.getElementsByClassName("gform");
 const senderName = document.getElementById("name");
 const senderEmail = document.getElementById("email");
 const senderSubject = document.getElementById("subject");
