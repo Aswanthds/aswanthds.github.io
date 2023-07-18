@@ -4,7 +4,7 @@ const senderEmail = document.getElementById("email");
 const senderSubject = document.getElementById("subject");
 const senderMessage = document.getElementById("messages");
 
-form.addEventListener("submit", e => {
+gform.addEventListener("submit", e => {
   e.preventDefault();
   validateInputs();
 });
